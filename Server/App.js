@@ -2,11 +2,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var server = require('http').Server(app);
 var app = require('express')();
+var  address = require('address');
 // var app = express();
 express = require('express');
 cors = require('cors');
 http = require('http');
 path = require('path');
+
 
 let util = require('./Utilities/Util');
 let articleRoute = require('./Routes/article');
@@ -37,9 +39,9 @@ app.use(function(_req, _res, next) {
 });
 
 /*first API to check if server is running*/
-app.get('*', (_req, res) => {
-    res.sendFile(path.join(__dirname, '../api/dist/index.html'));
-})
+// app.get('*', (_req, res) => {
+//     res.sendFile(path.join(__dirname, 'api/src/index.html'));
+// })
 
 // app.get('/', (req, res, next) => {
 //     res.status(200).json({
@@ -48,8 +50,8 @@ app.get('*', (_req, res) => {
 //     });
 // });
 
-// var server = app.listen(process.env.PORT || 3000, function() {
-    var server = app.listen(process.env.PORT || 3200, function() {
+var server = app.listen(process.env.PORT || 3000, function() {
+// var server = app.listen(process.env.PORT || 3200, function() {
     var port = server.address().port;
     console.log('Express server running in: \x1b[32m%s\x1b[0m', 'https://server3.azlogica.com:' + port + '/');
 });

@@ -2,16 +2,16 @@ let environment = "dev";
 
 let serverURLs = {
     "dev": {
-        // "NODE_SERVER": "http://localhost:4200/",
-        // "NODE_SERVER_PORT": "3000",
-        "NODE_SERVER": "http://server3.azlogica.com/",
-        "NODE_SERVER_PORT": "3200",
+        "NODE_SERVER": "http://localhost:4200/",
+        "NODE_SERVER_PORT": "3000",
+        // "NODE_SERVER": "http://server3.azlogica.com/",
+        // "NODE_SERVER_PORT": "3200",
         "MYSQL_HOST": 'localhost',
         "MYSQL_USER": 'root',
-        // "MYSQL_PASSWORD": '',
-        "MYSQL_PASSWORD": 'evolucion',
-        'MYSQL_DATABASE': 'demo_angular7',
-        // 'MYSQL_DATABASE': 'demo_angular7_crud',
+        "MYSQL_PASSWORD": '',
+        // "MYSQL_PASSWORD": 'evolucion',
+        // 'MYSQL_DATABASE': 'demo_angular7',
+        'MYSQL_DATABASE': 'demo_angular7_crud',
     }
 }
 

@@ -13,7 +13,7 @@ let createArticle = (data, callback) => {
         var dataToSet = {
           category: data.category ? data.category : "",
           title: data.title,
-          img: data.img,
+          
         };
         console.log(dataToSet);
         articleDAO.createArticle(dataToSet, (err, _dbData) => {

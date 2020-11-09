@@ -11,10 +11,10 @@ import { Router } from '@angular/router';
 @Injectable()
 export class ArticleService {
   //URL for CRUD operations
-  // articleUrl = "http://localhost:3000";
+  articleUrl = "http://localhost:3000";
   // articleUrl = "https://18.212.15.234:3004";
  
-  articleUrl = "https://server3.azlogica.com:3200";
+  // articleUrl = "https://server3.azlogica.com:3200";
   
   //Create constructor to get Http instancenpm start
   constructor(private http: HttpClient, router:Router) {}
@@ -30,7 +30,7 @@ export class ArticleService {
   }
   //Create article
   createArticle(article: Article): Observable<any> {
-       let headers = new HttpHeaders();
+    let headers = new HttpHeaders();
     headers = headers.set("Content-Type", "application/json");
     return this.http.post(
       this.articleUrl + "/article/create-article",

@@ -10,9 +10,9 @@ import { Transaccion } from "../models/transaccion";
 })
 export class TransaccionService {
   //URL for CRUD operations
-  // transaccionUrl = "http://localhost:3000";
+  transaccionUrl = "http://localhost:3000";
    // transaccionUrl = "http://54.152.255.144:3005";
-    transaccionUrl = "http://server3.azlogica.com:3200";
+    // transaccionUrl = "http://server3.azlogica.com:3200";
   //Create constructor to get Http instance
   constructor(protected http: HttpClient) {}
 
