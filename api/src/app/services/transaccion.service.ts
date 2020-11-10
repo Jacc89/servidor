@@ -2,6 +2,9 @@ import { Injectable } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Observable } from "rxjs";
 import { catchError, retry } from 'rxjs/operators';
+// Variable de entorno
+import { environment } from "src/environments/environment";
+// modelo de tabla de base datos
 
 import { Transaccion } from "../models/transaccion";
 
@@ -9,24 +12,23 @@ import { Transaccion } from "../models/transaccion";
   providedIn: "root",
 })
 export class TransaccionService {
-  //URL for CRUD operations
-  transaccionUrl = "http://localhost:3000";
-   // transaccionUrl = "http://54.152.255.144:3005";
-    // transaccionUrl = "http://server3.azlogica.com:3200";
+  //URL for CRUD operations cambiada por variable de entorno.
+  // transaccionUrl = "http://localhost:3000";
+
   //Create constructor to get Http instance
   constructor(protected http: HttpClient) {}
 
   //Fetch all Transacciones
   getAllTransacciones() {
-    return this.http.get(`${this.transaccionUrl}/transaccion/get-transacciones`);
-  }
+    return this.http.get(`${environment.articleUrl}/transaccion/get-transacciones`);
+  }// asi usas la variable de entorno en cada servicio
 
   //Create transacciones
   createTransaccion(transaccion: Transaccion): Observable<any> {
     let headers = new HttpHeaders();
     headers = headers.set("Content-Type", "application/json");
     return this.http.post<any>(
-      this.transaccionUrl + "/transaccion/create-transaccion",
+      environment.articleUrl + "/transaccion/create-transaccion",
       JSON.stringify(transaccion),
       { headers: headers }
     );
@@ -36,7 +38,7 @@ export class TransaccionService {
     let headers = new HttpHeaders()
     headers = headers.set("Content-Type", "application/json");
     return this.http.put<any>(
-      this.transaccionUrl + "/transaccion/update-transaccion",
+      environment.articleUrl + "/transaccion/update-transaccion",
       JSON.stringify(transaccion),
       { headers: headers }
     );   

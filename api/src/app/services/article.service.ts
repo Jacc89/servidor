@@ -7,11 +7,14 @@ import { Article } from "../models/article";
 import { TransaccionComponent } from "../components/transaccion/transaccion.component";
 import { Transaccion } from "../models/transaccion";
 import { Router } from '@angular/router';
+// Variable de entorno
+import { environment } from "src/environments/environment";
+
 
 @Injectable()
 export class ArticleService {
   //URL for CRUD operations
-  articleUrl = "http://localhost:3000";
+  // articleUrl = "http://localhost:3000";
   // articleUrl = "https://18.212.15.234:3004";
  
   // articleUrl = "https://server3.azlogica.com:3200";
@@ -25,7 +28,7 @@ export class ArticleService {
     console.log("getAllarticle");
     let headers = new HttpHeaders();
     headers = headers.set("Content-Type", "application/json");
-    return this.http.get(this.articleUrl + "/article/get-article");
+    return this.http.get(environment.articleUrl + "/article/get-article");
    
   }
   //Create article
@@ -33,7 +36,7 @@ export class ArticleService {
     let headers = new HttpHeaders();
     headers = headers.set("Content-Type", "application/json");
     return this.http.post(
-      this.articleUrl + "/article/create-article",
+      environment.articleUrl + "/article/create-article",
       JSON.stringify(article),
       { headers: headers }
     );
@@ -42,9 +45,9 @@ export class ArticleService {
   //Fetch article by id
   getArticleById(articleId: string) {
     let headers = new Headers({ "Content-Type": "application/json" });
-    console.log(this.articleUrl + "/get-article-by-id?id=" + articleId);
+    console.log(environment.articleUrl + "/get-article-by-id?id=" + articleId);
     return this.http.get(
-      `${this.articleUrl}/article/get-article-by-id?id=${articleId}`
+      `${environment.articleUrl}/article/get-article-by-id?id=${articleId}`
     );
   }
   //Update article
@@ -52,7 +55,7 @@ export class ArticleService {
     let headers = new HttpHeaders();
     headers = headers.set("Content-Type", "application/json");
     return this.http.put(
-      this.articleUrl + "/article/update-article",
+      environment.articleUrl + "/article/update-article",
       JSON.stringify(article),
       { headers: headers }
     );
@@ -61,7 +64,7 @@ export class ArticleService {
   deleteArticleById(articleId: string) {
     let headers = new HttpHeaders({ "Content-Type": "application/json" });
     return this.http.delete(
-      this.articleUrl + "/article/delete-article?id=" + articleId
+      environment.articleUrl + "/article/delete-article?id=" + articleId
     );
   }
   //  la ip

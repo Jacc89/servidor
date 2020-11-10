@@ -11,6 +11,7 @@ path = require('path');
 
 
 let util = require('./Utilities/Util');
+const config = require('./Utilities/config');
 let articleRoute = require('./Routes/article');
 let transaccionRoute = require('./Routes/transaccion');
 
@@ -50,12 +51,8 @@ app.use(function(_req, _res, next) {
 //     });
 // });
 
-var server = app.listen(process.env.PORT || 3000, function() {
+var server = app.listen(process.env.PORT || 3000,  function() {
 // var server = app.listen(process.env.PORT || 3200, function() {
     var port = server.address().port;
     console.log('Express server running in: \x1b[32m%s\x1b[0m', 'https://server3.azlogica.com:' + port + '/');
 });
-
-// server.listen(3000, function() {
-//     console.log('app listening on port: 3000');
-// });
